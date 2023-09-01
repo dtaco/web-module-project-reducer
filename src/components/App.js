@@ -10,7 +10,9 @@ import {
   applyNumber, 
   changeOperation,
   clearDisplay, 
-  memoryAdd 
+  memoryAdd,
+  memoryApply,
+  memoryClear
 } from '../actions/index';
 
 function App() {
@@ -33,6 +35,14 @@ function App() {
     dispatch(memoryAdd());
   }
 
+  const handleMemoryApply = () => {
+    dispatch(memoryApply());
+  }
+
+  const handleMemoryClear = () => {
+    dispatch(memoryClear());
+  }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -50,9 +60,9 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"} onClick={handleMemoryAdd}/>
-              <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton value={"M+"} onClick={handleMemoryAdd}  />
+              <CalcButton value={"MR"} onClick={handleMemoryApply}/>
+              <CalcButton value={"MC"} onClick={handleMemoryClear}/>
             </div>
 
             <div className="row">
